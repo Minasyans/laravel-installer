@@ -97,31 +97,27 @@ class EnvironmentManager
      * Save the edited content to the .env file.
      *
      * @param Request $input
-     * @return string
+     * @return bool
      */
-    public function saveFileClassic(Request $input): string
+    public function saveFileClassic(Request $input): bool
     {
-        $message = trans('laravel-installer.environment.success');
-
         try {
             file_put_contents($this->envPath, $input->get('envConfig'));
         } catch (Exception $e) {
-            $message = trans('laravel-installe.environment.errors');
+            return false;
         }
 
-        return $message;
+        return true;
     }
 
     /**
      * Save the form content to the .env file.
      *
      * @param Request $request
-     * @return string
+     * @return bool
      */
-    public function saveFileWizard(Request $request): string
+    public function saveFileWizard(Request $request): bool
     {
-        $results = trans('laravel-installe.environment.success');
-
         $envFileData = '';
 
         foreach (config('laravel-installer.settings') as $zoneKey => $zoneInfo) {
@@ -148,10 +144,10 @@ class EnvironmentManager
         try {
             file_put_contents($this->envPath, $envFileData);
         } catch (Exception $e) {
-            $results = trans('laravel-installer.environment.errors');
+            return false;
         }
 
-        return $results;
+        return true;
     }
 
     /**

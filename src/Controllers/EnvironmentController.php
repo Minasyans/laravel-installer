@@ -69,9 +69,15 @@ class EnvironmentController
      */
     public function saveClassic(Request $input, Redirector $redirect)
     {
-        $message = $this->EnvironmentManager->saveFileClassic($input);
+        $saveFile = $this->EnvironmentManager->saveFileClassic($input);
 
-        event(new EnvironmentSaved($input));
+        if ($saveFile) {
+            $message = trans('laravel-installer::installer.environment.success');
+
+            event(new EnvironmentSaved($input));
+        } else {
+            $message = trans('laravel-installer::installer.environment.errors');
+        }
 
         return $redirect->route('LaravelInstaller::environmentClassic')
             ->with(['message' => $message]);
@@ -94,7 +100,15 @@ class EnvironmentController
             ]);
         }
 
-        $results = $this->EnvironmentManager->saveFileWizard($request);
+        $saveFile = $this->EnvironmentManager->saveFileWizard($request);
+
+        if ($saveFile) {
+            $results = trans('installer_messages.environment.success');
+
+            event(new EnvironmentSaved($input));
+        } else {
+            $results = trans('installer_messages.environment.errors');
+        }
 
         return $redirect->route('LaravelInstaller::database')
             ->with(['results' => $results]);
