@@ -103,11 +103,11 @@ class EnvironmentController
         $saveFile = $this->EnvironmentManager->saveFileWizard($request);
 
         if ($saveFile) {
-            $results = trans('installer_messages.environment.success');
+            $results = trans('laravel-installer::installer.environment.success');
 
-            event(new EnvironmentSaved($input));
+            event(new EnvironmentSaved($request));
         } else {
-            $results = trans('installer_messages.environment.errors');
+            $results = trans('laravel-installer::installer.environment.errors');
         }
 
         return $redirect->route('LaravelInstaller::database')

@@ -12,15 +12,58 @@
 @section('content')
 
     <div class="mb-20">
-        @if(session('message')['dbOutputLog'])
+        @if(session('databaseMessage'))
+            @if(session('databaseMessage')['dbOutputLog'])
+                <div class="mt-5 mb-3">
+                    <div class="font-weight-bold text-md">
+                        {{ __('laravel-installer::installer.final.migration') }}
+                    </div>
+                </div>
+                @if(session('databaseMessage')['status'] == 'error')
+                    <div class="mt-5 mb-3">
+                        <div class="font-weight-bold text-md">
+                            {{ __('laravel-installer::installer.final.error') }}
+                        </div>
+                    </div>
+                    @include('laravel-installer::partials.console', [
+                        'message' => session('databaseMessage')['message']
+                    ])
+                @else
+                    @include('laravel-installer::partials.console', [
+                        'message' => session('databaseMessage')['dbOutputLog']
+                    ])
+                @endif
+            @endif
+        @endif
+
+        @if(session('commandMessage'))
             <div class="mt-5 mb-3">
                 <div class="font-weight-bold text-md">
-                    {{ __('laravel-installer::installer.final.migration') }}
+                    {{ __('laravel-installer::installer.final.command') }}
                 </div>
             </div>
-            @include('laravel-installer::partials.console', [
-                'message' => session('message')['dbOutputLog']
-            ])
+            @foreach (session('commandMessage') as $message)
+                <div class="mt-5 mb-3">
+                    <div class="font-weight-bold text-md">
+                        {{ $message['command'] }}
+                    </div>
+                </div>
+
+                @if($message['status'] == 'error')
+                    <div class="mt-5 mb-3">
+                        <div class="font-weight-bold text-md">
+                            {{ __('laravel-installer::installer.final.error') }}
+                        </div>
+                    </div>
+                    @include('laravel-installer::partials.console', [
+                        'message' => $message['message']
+                    ])
+                @else
+                    @include('laravel-installer::partials.console', [
+                        'message' => $message['outputLog']
+                    ])
+                @endif
+            @endforeach
         @endif
 
         <div class="mt-5 mb-3">

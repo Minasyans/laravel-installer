@@ -71,7 +71,7 @@ class FinalInstallManager
         return [
             'status' => 'error',
             'message' => $message,
-            'dbOutputLog' => $outputLog->fetch(),
+            'outputLog' => $outputLog->fetch(),
         ];
     }
 }

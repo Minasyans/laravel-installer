@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use Minasyans\LaravelInstaller\Controllers\StarterKitController;
 use Minasyans\LaravelInstaller\Controllers\AccountController;
+use Minasyans\LaravelInstaller\Controllers\CommandController;
 use Minasyans\LaravelInstaller\Controllers\DatabaseController;
 use Minasyans\LaravelInstaller\Controllers\EnvironmentController;
 use Minasyans\LaravelInstaller\Controllers\FinalController;
@@ -31,6 +32,11 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
             Route::post('environment/saveClassic', [EnvironmentController::class, 'saveClassic'])->name('environmentSaveClassic');
 
             Route::get('database', [DatabaseController::class, 'database'])->name('database');
+
+            Route::get('command', [
+                'as' => 'command',
+                'uses' => 'CommandController@commands',
+            ]);
 
             Route::get('final', [
                 'as' => 'final',

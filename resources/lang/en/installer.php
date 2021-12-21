@@ -9,6 +9,7 @@ return [
     'next' => 'Next Step',
     'back' => 'Previous',
     'finish' => 'Install',
+    'ignore' => 'Ignore and Next Step',
     'go_to_homepage' => 'Go to homepage',
     'forms' => [
         'errorTitle' => 'The Following errors occurred:',
@@ -22,6 +23,7 @@ return [
         'title'   => 'Laravel Installer',
         'message' => 'Easy Installation and Setup Wizard.',
         'next'    => 'Check Requirements',
+        'skipAndInstall' => 'Install immediately'
     ],
 
     /*
@@ -283,10 +285,12 @@ return [
         'templateTitle' => 'Installation Finished',
         'finished' => 'Application has been successfully installed.',
         'migration' => 'Migration &amp; Seed Console Output:',
+        'command' => 'Command Console Output:',
         'console' => 'Application Console Output:',
         'log' => 'Installation Log Entry:',
         'env' => 'Final .env File:',
         'create_account' => 'Create account',
+        'error' => 'ERROR',
         'exit' => 'Click here to exit',
     ],
 

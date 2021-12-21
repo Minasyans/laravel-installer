@@ -11,7 +11,8 @@ class InstalledFileManager
      */
     public function create()
     {
-        $installedLogFile = storage_path('installed');
+        $installedLogFileName = config('laravel-installer.installedFileName', 'installed');
+        $installedLogFile = storage_path($installedLogFileName);
 
         $dateStamp = date('Y/m/d h:i:sa');
 
