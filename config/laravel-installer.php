@@ -646,7 +646,7 @@ return [
     | This is maybe helpfully in local environments for debugging.
     | This is not recommended for productive usage. Default boolean false.
     */
-    'ignoreAlreadyInstalled' => true,
+    'ignoreAlreadyInstalled' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -658,7 +658,7 @@ return [
     | The list is by default empty.
     */
     'commands'=> [
-        
+
     ],
 
     /*
