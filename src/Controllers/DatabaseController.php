@@ -2,6 +2,7 @@
 
 namespace Minasyans\LaravelInstaller\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Minasyans\LaravelInstaller\Helpers\DatabaseManager;
 
@@ -25,11 +26,14 @@ class DatabaseController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function database()
+    public function database(Request $request)
     {
         $response = $this->databaseManager->migrateAndSeed();
 
-        return redirect()->route('LaravelInstaller::final')
-            ->with(['message' => $response]);
+        $request->session()->put(['databaseMessage' => $response]);
+        $request->session()->save();
+        $request->session()->reflash();
+
+        return redirect()->route('LaravelInstaller::command');
     }
 }
