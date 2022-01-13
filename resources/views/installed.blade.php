@@ -1,4 +1,4 @@
-@extends('laravel-installer::layouts.configuration')
+@extends('laravel-installer::layouts.master')
 
 @section('template_title')
     {{ __('laravel-installer::installer.final.templateTitle') }}

@@ -2,20 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-use Minasyans\LaravelInstaller\Controllers\StarterKitController;
-use Minasyans\LaravelInstaller\Controllers\AccountController;
-use Minasyans\LaravelInstaller\Controllers\CommandController;
-use Minasyans\LaravelInstaller\Controllers\DatabaseController;
-use Minasyans\LaravelInstaller\Controllers\EnvironmentController;
-use Minasyans\LaravelInstaller\Controllers\FinalController;
-use Minasyans\LaravelInstaller\Controllers\PermissionsController;
-use Minasyans\LaravelInstaller\Controllers\RequirementsController;
-use Minasyans\LaravelInstaller\Controllers\WelcomeController;
+use Minasyans\LaravelInstaller\Http\Controllers\LanguageController;
+use Minasyans\LaravelInstaller\Http\Controllers\DatabaseController;
+use Minasyans\LaravelInstaller\Http\Controllers\StarterKitController;
+use Minasyans\LaravelInstaller\Http\Controllers\EnvironmentController;
+use Minasyans\LaravelInstaller\Http\Controllers\PermissionsController;
+use Minasyans\LaravelInstaller\Http\Controllers\RequirementsController;
+use Minasyans\LaravelInstaller\Http\Controllers\WelcomeController;
 
-Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' => 'Minasyans\LaravelInstaller\Controllers'], function () {
+Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' => 'Minasyans\LaravelInstaller\Http\Controllers'], function () {
 
     Route::middleware(['web'])->group(function () {
+
+        Route::get('localization/{locale}', ['as' => 'localization.switch', 'uses' => 'LocalizationController@switchLanguage']);
+
         Route::middleware(['install'])->group(function () {
+
             Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 
             Route::get('requirements', [RequirementsController::class, 'requirements'])->name('requirements');
@@ -47,16 +49,13 @@ Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' =
         Route::middleware(['configureApplication'])->group(function () {
             Route::get('starter-kit', [StarterKitController::class, 'chooseStarterKit'])->name('chooseStarterKit');
             Route::post('starter-kit', [StarterKitController::class, 'useTheme'])->name('useTheme');
+            Route::post('starter-kit/blank', [StarterKitController::class, 'blank'])->name('starterKit.blank');
             Route::get('starter-kit/final', [StarterKitController::class, 'finish'])->name('starterKit.final');
-
-            Route::get('create-account', [AccountController::class, 'createAccount'])->name('createAccount');
-            Route::post('create-account', [AccountController::class, 'store'])->name('store');
         });
     });
-
 });
 
-Route::group(['prefix' => 'update', 'as' => 'LaravelUpdater::', 'namespace' => 'Minasyans\LaravelInstaller\Controllers', 'middleware' => 'web'], function () {
+Route::group(['prefix' => 'update', 'as' => 'LaravelUpdater::', 'namespace' => 'Minasyans\LaravelInstaller\Http\Controllers', 'middleware' => 'web'], function () {
     Route::group(['middleware' => 'update'], function () {
         Route::get('/', [
             'as' => 'welcome',

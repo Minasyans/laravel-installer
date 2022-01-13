@@ -31,7 +31,7 @@ The current features are :
 
 ## Requirements
 
-* [Laravel 5.5+](https://laravel.com/docs/installation)
+* [Laravel 8.x](https://laravel.com/docs/installation)
 
 ## Installation
 

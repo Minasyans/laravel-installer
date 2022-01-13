@@ -3,8 +3,11 @@
 return [
 
     /*
-     * Shared translations.
-     */
+    |--------------------------------------------------------------------------
+    | Shared translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'title' => 'Laravel Installer',
     'next' => 'Next Step',
     'back' => 'Previous',
@@ -16,8 +19,11 @@ return [
     ],
 
     /*
-     * Home page translations.
-     */
+    |--------------------------------------------------------------------------
+    | Home page translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'welcome' => [
         'templateTitle' => 'Welcome',
         'title'   => 'Laravel Installer',
@@ -27,8 +33,11 @@ return [
     ],
 
     /*
-     * Requirements page translations.
-     */
+    |--------------------------------------------------------------------------
+    | Requirements page translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'requirements' => [
         'templateTitle' => 'Step 1 | Server Requirements',
         'title' => 'Server Requirements',
@@ -37,8 +46,11 @@ return [
     ],
 
     /*
-     * Permissions page translations.
-     */
+    |--------------------------------------------------------------------------
+    | Permissions page translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'permissions' => [
         'templateTitle' => 'Step 2 | Permissions',
         'title' => 'Permissions',
@@ -47,8 +59,11 @@ return [
     ],
 
     /*
-     * Environment page translations.
-     */
+    |--------------------------------------------------------------------------
+    | Environment page translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'environment' => [
         'menu' => [
             'templateTitle' => 'Step 3 | Environment Settings',
@@ -92,7 +107,7 @@ return [
                 'log_channel_placeholder' => 'App Log Channel',
                 'app_url_label' => 'App Url',
                 'app_url_placeholder' => 'App Url',
-                'db_create_if_not_exists' => 'Create database if not exists',
+                'db_create_if_not_exists' => 'Create a database if not exist',
                 'db_connection_failed' => 'Could not connect to the database.',
                 'db_connection_label' => 'Database Connection',
                 'db_connection_label_mysql' => 'mysql',
@@ -270,16 +285,22 @@ return [
     'install' => 'Install',
 
     /*
-     * Installed Log translations.
-     */
+    |--------------------------------------------------------------------------
+    | Installed Log translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'installed' => [
         'success_log_message' => 'Laravel Installer successfully INSTALLED on ',
         'already_installed_message' => 'Application already installed',
     ],
 
     /*
-     * Final page translations.
-     */
+    |--------------------------------------------------------------------------
+    | Final page translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'final' => [
         'title' => 'Installation Finished',
         'templateTitle' => 'Installation Finished',
@@ -294,48 +315,59 @@ return [
         'exit' => 'Click here to exit',
     ],
 
-    /**
-     * Starter Kit translations.
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Starter Kit translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'starter_kit' => [
         'title' => 'Starter Kit',
         'sub_title' => 'Which Laravel starter kit you want to use?',
         'inertia' => 'Inertia',
-        'use_theme' => 'Use theme',
+        'use_theme' => 'Install theme',
+        'blank' => 'Leave it blank',
+        'processing' => 'Processing...',
+        'read_more' => 'Read more',
         'scaffolding_replaced' => ':scaffold scaffolding replaced successfully.',
 
         'log' => [
-            'success_message' => 'Starter kid selected on ',
+            'success_message' => 'Starter kit selected on ',
         ],
     ],
 
-    /**
-     * Create account translations.
-     */
-    'create_account' => [
-        'title' => 'Create account'
-    ],
-
     /*
-     * Update specific translations
-     */
+    |--------------------------------------------------------------------------
+    | Update specific translations
+    |--------------------------------------------------------------------------
+    |
+    */
     'updater' => [
         /*
-         * Shared translations.
-         */
+        |--------------------------------------------------------------------------
+        | Shared translations
+        |--------------------------------------------------------------------------
+        |
+        */
         'title' => 'Laravel Updater',
 
         /*
-         * Welcome page translations for update feature.
-         */
+        |--------------------------------------------------------------------------
+        | Welcome page translations for update feature
+        |--------------------------------------------------------------------------
+        |
+        */
         'welcome' => [
             'title'   => 'Welcome To The Updater',
             'message' => 'Welcome to the update wizard.',
         ],
 
         /*
-         * Welcome page translations for update feature.
-         */
+        |--------------------------------------------------------------------------
+        | Welcome page translations for update feature
+        |--------------------------------------------------------------------------
+        |
+        */
         'overview' => [
             'title'   => 'Overview',
             'message' => 'There is 1 update.|There are :number updates.',
@@ -343,11 +375,14 @@ return [
         ],
 
         /*
-         * Final page translations.
-         */
+        |--------------------------------------------------------------------------
+        | Final page translations
+        |--------------------------------------------------------------------------
+        |
+        */
         'final' => [
             'title' => 'Finished',
-            'finished' => 'Application\'s database has been successfully updated.',
+            'finished' => 'The application\'s database has been successfully updated.',
             'exit' => 'Click here to exit',
         ],
 

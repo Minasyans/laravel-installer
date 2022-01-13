@@ -3,6 +3,17 @@
 return [
     'base_path' => dirname(__DIR__, 1),
 
+    'languages' => [
+        'en' => [
+            'title' => 'English',
+            'icon' => 'en',
+        ],
+        'ru' => [
+            'title' => 'Русский',
+            'icon' => 'ru',
+        ]
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Server Requirements
@@ -16,10 +27,12 @@ return [
     'core' => [
         'minPhpVersion' => '7.3',
     ],
+
     'final' => [
         'key' => true,
         'publish' => false,
     ],
+
     'requirements' => [
         'php' => [
             'bcmath',
@@ -564,15 +577,21 @@ return [
             'themes' => [
                 'windmill' => [
                     'title' => 'Windmill',
-                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/windmill.png?raw=true'
+                    'url' => 'https://windmillui.com/dashboard-html',
+                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/windmill.png?raw=true',
+                    'description' => 'If you\'re looking for the React version, go here. This application is perfect if you are looking for flexibility, like a server rendered or a framework implementation that is not currently offered, or just don\'t want too much dependencies. Accessibility is a priority in my projects and I think it should be in yours too, so this was developed listening to real screen readers and focus traps and keyboard navigation are available everywhere.'
                 ],
                 'notusjs' => [
                     'title' => 'Notus JS',
-                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/notusjs.jpg?raw=true'
+                    'url' => 'https://www.creative-tim.com/product/notus-js',
+                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/notusjs.jpg?raw=true',
+                    'description' => 'Start your development with a Free Tailwind CSS and JavaScript UI Kit and Admin. Let Notus JS amaze you with its cool features and build tools and get your project to a whole new level.'
                 ],
                 'tailwindcomponents' => [
                     'title' => 'Tailwind Components',
-                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/tailwindcomponents.png?raw=true'
+                    'url' => 'https://github.com/tailwindcomponents/dashboard',
+                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/tailwindcomponents.png?raw=true',
+                    'description' => 'Start template for dashboard projects build with Tailwindcss, Alpinejs and Laravel blade.'
                 ]
             ]
         ],
@@ -581,23 +600,33 @@ return [
             'themes' => [
                 'adminlte' => [
                     'title' => 'AdminLTE - Bootstrap 4',
-                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/adminlte.jpg?raw=true'
+                    'url' => 'https://adminlte.io/',
+                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/adminlte.jpg?raw=true',
+                    'description' => 'Best open source admin dashboard & control panel theme. Built on top of Bootstrap, AdminLTE provides a range of responsive, reusable, and commonly used components.'
                 ],
                 'coreui' => [
                     'title' => 'Core UI - Bootstrap 5',
-                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/coreui.jpeg?raw=true'
+                    'url' => 'https://coreui.io/pro/bootstrap/',
+                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/coreui.jpeg?raw=true',
+                    'description' => 'Develop modern, beautiful, and responsive applications in half the time with high-performing and easy-to-customize UI components to cover any requirement.'
                 ],
                 'plainadmin' => [
                     'title' => 'Plainadmin - Bootstrap 5',
-                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/plainadmin.jpg?raw=true'
+                    'url' => 'https://plainadmin.com/',
+                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/plainadmin.jpg?raw=true',
+                    'description' => 'PlainAdmin is an Open-source Free & Premium Bootstrap 5 based vanilla JS multipurpose admin template that comes with - all essential dashboard components, pages, UI elements, charts, graphs, libraries and everything you may need for a data-rich backend, dashboard or admin panel.',
                 ],
                 'volt' => [
                     'title' => 'Volt - Bootstrap 5',
-                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/volt.png?raw=true'
+                    'url' => 'https://demo.themesberg.com/volt/',
+                    'image' => 'https://github.com/Minasyans/laravel-installer/blob/main/resources/stubs/art/volt.png?raw=true',
+                    'description' => 'Open source dashboard powered by Bootstrap 5. Volt is built using the latest version of Bootstrap 5 and we only used Vanilla Javascript for everything including the plugins',
                 ],
                 'sb-admin-2' => [
                     'title' => 'SB Admin 2 - Bootstrap 4',
-                    'image' => 'https://raw.githubusercontent.com/Minasyans/laravel-installer/main/resources/stubs/art/sb-admin-2.webp'
+                    'url' => 'https://startbootstrap.com/theme/sb-admin-2',
+                    'image' => 'https://raw.githubusercontent.com/Minasyans/laravel-installer/main/resources/stubs/art/sb-admin-2.webp',
+                    'description' => 'A free Bootstrap 4 admin theme built with HTML/CSS and a modern development workflow environment ready to use to build your next dashboard or web application',
                 ],
             ]
         ],

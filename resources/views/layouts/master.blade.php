@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,38 +11,32 @@
         @endif
         {{ trans('laravel-installer::installer.title') }}
     </title>
-    <link rel="icon" type="image/png" href="{{ asset('vendor/laravel-installer//img/favicon/favicon-16x16.png') }}" sizes="16x16"/>
-    <link rel="icon" type="image/png" href="{{ asset('vendor/laravel-installer//img/favicon/favicon-32x32.png') }}" sizes="32x32"/>
-    <link rel="icon" type="image/png" href="{{ asset('vendor/laravel-installer//img/favicon/favicon-96x96.png') }}" sizes="96x96"/>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('vendor/laravel-installer/css/tailwind.min.css') }}">
+    @yield('style')
+    @livewireStyles
 
     <!-- Scripts -->
-    <script src="{{ asset('vendor/laravel-installer/js/alpine.min.js') }}" defer></script>
-
-    @yield('style')
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.7.1/dist/cdn.min.js"></script>
 
     <script>
-        window.Laravel = <?= json_encode([
+        window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 </head>
 <body class="antialiased sans-serif bg-gray-200">
-    <div class="max-w-3xl mx-auto px-4 py-10">
+    @include('laravel-installer::layouts.navigation')
 
-        <div class="py-5">
-            <h1 class="font-semibold text-2xl text-center">@yield('title')</h1>
-        </div>
-
+    <div class="max-w-5xl mx-auto px-4 py-10">
         @yield('content')
-
     </div>
 
     @yield('scripts')
+    @livewireScripts
 </body>
 </html>
